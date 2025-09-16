@@ -1,0 +1,1405 @@
+--- 
+import CertificateCard from "../components/CertificateCard.astro";
+import { Icon } from "astro-icon";
+import Footer from "../components/Footer.astro";
+
+import "../styles/global.css";
+import TechStack from '../components/TechStack.astro';
+--- 
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Talha Abdul Rauf | Portfolio</title>
+    
+    <!-- Fonts & AOS CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-gradient-to-br from-black via-gray-900 to-black text-white font-[Poppins] min-h-screen">
+    <!-- Navigation -->
+
+    
+<nav class="flex justify-between items-center px-8 py-4 sticky top-0 bg-black/40 backdrop-blur-lg z-50 border-b border-gray-800 font-[Poppins]">
+<!-- Logo & Name -->
+<div class="flex items-center gap-3">
+  <!-- Cube Illusion Monogram -->
+  <div class="relative w-28 h-28 flex items-center justify-center group perspective">
+    <svg viewBox="0 0 120 120" class="w-full h-full cube transition-transform duration-500 ease-out group-hover:rotate-3d animate-float relative z-10">
+      <!-- Cube Faces -->
+      <polygon points="60,5 110,35 60,65 10,35"
+        fill="url(#grad)" opacity="0.85"
+        class="drop-shadow-[0_0_18px_rgba(0,200,255,0.7)]"></polygon>
+      <polygon points="60,65 110,35 110,85 60,115"
+        fill="url(#grad)" opacity="0.65"
+        class="drop-shadow-[0_0_15px_rgba(168,85,247,0.6)]"></polygon>
+      <polygon points="60,65 10,35 10,85 60,115"
+        fill="url(#grad)" opacity="0.65"
+        class="drop-shadow-[0_0_15px_rgba(0,245,255,0.6)]"></polygon>
+
+      <!-- Gradient Def -->
+      <defs>
+        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#00f5ff"/>
+          <stop offset="100%" stop-color="#a855f7"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Monogram -->
+      <text x="50%" y="58%" text-anchor="middle" fill="white"
+        font-family="Orbitron, sans-serif" font-size="26" font-weight="bold"
+        class="drop-shadow-[0_0_12px_rgba(0,255,255,0.9)]">TAR</text>
+
+      <!-- Neural Network Overlay -->
+      <g class="neural-network">
+        <!-- Connections -->
+        <line x1="30" y1="40" x2="60" y2="20" class="neural-line delay-0"/>
+        <line x1="90" y1="40" x2="60" y2="20" class="neural-line delay-1"/>
+        <line x1="30" y1="40" x2="90" y2="40" class="neural-line delay-2"/>
+        <line x1="30" y1="40" x2="60" y2="80" class="neural-line delay-3"/>
+        <line x1="90" y1="40" x2="60" y2="80" class="neural-line delay-4"/>
+
+        <!-- Nodes -->
+        <circle cx="60" cy="20" r="3" class="neural-node"/>
+        <circle cx="30" cy="40" r="3" class="neural-node"/>
+        <circle cx="90" cy="40" r="3" class="neural-node"/>
+        <circle cx="60" cy="80" r="3" class="neural-node"/>
+      </g>
+    </svg>
+
+    <!-- Diagonal Energy Sweep -->
+    <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-cyan-400/20 to-transparent energy-sweep z-20"></div>
+
+    <!-- Particle Aura -->
+    <div class="absolute inset-0 z-0 pointer-events-none">
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+    </div>
+  </div>
+
+  <!-- Name + Title -->
+  <div class="flex flex-col">
+    
+<span class="text-lg md:text-xl font-black uppercase tracking-widest text-transparent bg-clip-text bg-[length:200%_200%] bg-gradient-to-r from-blue-400 via-purple to-pink-400 animate-text-shine" style="font-family: 'Orbitron', sans-serif; text-shadow: 0 0 1500px #ffffff, 0 0 350px #ffffff, 0 0 50px #ffffff, 0 0 50px #ffffff40;">
+  Aspiring Data Scientist & AI Engineer
+</span>
+
+<style>
+@keyframes text-shine {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+.animate-text-shine {
+  background-position: 0% 50%;
+  animation: text-shine 4s ease-in-out infinite alternate;
+}
+</style>
+
+  </div>
+</div>
+
+<style>
+  /* Floating cube idle animation */
+  @keyframes floatRotate {
+    0%   { transform: rotateX(0deg) rotateY(0deg) scale(1); }
+    25%  { transform: rotateX(5deg) rotateY(-5deg) scale(1.02); }
+    50%  { transform: rotateX(0deg) rotateY(0deg) scale(1); }
+    75%  { transform: rotateX(-5deg) rotateY(5deg) scale(1.02); }
+    100% { transform: rotateX(0deg) rotateY(0deg) scale(1); }
+  }
+  .animate-float { animation: floatRotate 6s ease-in-out infinite; }
+
+  .perspective { perspective: 800px; }
+  .cube { transform-style: preserve-3d; }
+  .group-hover\:rotate-3d { transform: rotateX(15deg) rotateY(15deg) scale(1.07); }
+
+  /* Neural Network Glow */
+  .neural-line {
+    stroke: rgba(0, 255, 255, 0.35);
+    stroke-width: 1.5;
+    stroke-dasharray: 40;
+    stroke-dashoffset: 40;
+    animation: lineFlow 5s linear infinite;
+  }
+  .neural-line.delay-0 { animation-delay: 0s; }
+  .neural-line.delay-1 { animation-delay: 0.8s; }
+  .neural-line.delay-2 { animation-delay: 1.6s; }
+  .neural-line.delay-3 { animation-delay: 2.4s; }
+  .neural-line.delay-4 { animation-delay: 3.2s; }
+
+  .neural-node {
+    fill: #00f5ff;
+    filter: drop-shadow(0 0 6px #00f5ff);
+    animation: nodePulse 5s ease-in-out infinite;
+  }
+
+  @keyframes nodePulse {
+    0%, 100% { r: 2.5; opacity: 0.5; }
+    40%, 60% { r: 4; opacity: 1; }
+  }
+
+  @keyframes lineFlow {
+    to { stroke-dashoffset: 0; }
+  }
+
+  /* Diagonal Energy Sweep */
+  @keyframes sweepMove {
+    0%   { transform: translate(-150%, -150%) rotate(25deg); opacity: 0.1; }
+    50%  { transform: translate(0%, 0%) rotate(25deg); opacity: 0.5; }
+    100% { transform: translate(150%, 150%) rotate(25deg); opacity: 0.1; }
+  }
+  .energy-sweep {
+    animation: sweepMove 5s linear infinite;
+    background-size: 200% auto;
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+
+  /* Particle Aura */
+  .particle {
+    position: absolute;
+    width: 4px; height: 4px;
+    background: rgba(0, 245, 255, 0.7);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 6px #00f5ff);
+    animation: floatParticle 8s ease-in-out infinite;
+  }
+  .particle:nth-child(1) { top: 15%; left: 20%; animation-delay: 0s; }
+  .particle:nth-child(2) { top: 30%; left: 70%; animation-delay: 2s; }
+  .particle:nth-child(3) { top: 60%; left: 10%; animation-delay: 4s; }
+  .particle:nth-child(4) { top: 75%; left: 80%; animation-delay: 1s; }
+  .particle:nth-child(5) { top: 45%; left: 50%; animation-delay: 3s; }
+  .particle:nth-child(6) { top: 85%; left: 35%; animation-delay: 5s; }
+
+  @keyframes floatParticle {
+    0%   { transform: translate(0,0) scale(0.7); opacity: 0.4; }
+    50%  { transform: translate(-10px,-15px) scale(1.2); opacity: 1; }
+    100% { transform: translate(0,0) scale(0.7); opacity: 0.4; }
+  }
+  /* Smooth 3D Cube Rotation */
+@keyframes cubeSpin {
+  0%   { transform: rotateX(0deg) rotateY(0deg); }
+  25%  { transform: rotateX(20deg) rotateY(10deg); }
+  50%  { transform: rotateX(40deg) rotateY(0deg); }
+  75%  { transform: rotateX(20deg) rotateY(-10deg); }
+  100% { transform: rotateX(0deg) rotateY(0deg); }
+}
+
+/* Apply to the cube */
+.cube {
+  transform-style: preserve-3d;
+  animation: cubeSpin 10s ease-in-out infinite;
+}
+</style>
+
+
+
+
+  <!-- Menu -->
+  <div class="hidden md:flex gap-8 text-lg font-semibold items-center">
+
+
+
+
+
+
+
+
+<!-- Tech Stack Button -->
+<a href="#techstack" class="godmode-btn">
+  <span>☰ MY TECH STACK</span>
+  <div class="orbit"></div>
+  <div class="orbit"></div>
+  <div class="orbit"></div>
+  <div class="scan"></div>
+  <div class="aura"></div>
+</a>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Tektur:wght@900&display=swap');
+
+.godmode-btn {
+  position: relative;
+  display: inline-block;
+  padding: 1.3rem 3rem;
+  border-radius: 999px;
+  font-family: 'Tektur', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: #fff;
+  background: #000;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  text-shadow: 0 0 10px #ff3e3e, 0 0 25px #ff0000, 0 0 50px #ff7b00;
+  perspective: 1200px;
+}
+
+/* ⚡ Futuristic segmented border */
+.godmode-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  padding: 4px;
+  background: conic-gradient(
+    from 0deg,
+    #ff3e3e 0deg 15deg,
+    transparent 15deg 30deg,
+    #ff7b00 30deg 45deg,
+    transparent 45deg 60deg,
+    #00ffff 60deg 75deg,
+    transparent 75deg 90deg,
+    #ff3e3e 90deg 105deg,
+    transparent 105deg 120deg,
+    #ff7b00 120deg 135deg,
+    transparent 135deg 150deg,
+    #00ffff 150deg 165deg,
+    transparent 165deg 180deg,
+    #ff3e3e 180deg 195deg,
+    transparent 195deg 210deg,
+    #ff7b00 210deg 225deg,
+    transparent 225deg 240deg,
+    #00ffff 240deg 255deg,
+    transparent 255deg 270deg,
+    #ff3e3e 270deg 285deg,
+    transparent 285deg 300deg,
+    #ff7b00 300deg 315deg,
+    transparent 315deg 330deg,
+    #00ffff 330deg 345deg,
+    transparent 345deg 360deg
+  );
+  animation: borderFlow 4s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+}
+
+@keyframes borderFlow {
+  to { transform: rotate(360deg); }
+}
+
+/* ⚡ Energy sparks inside */
+.godmode-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px);
+  background-size: 14px 14px;
+  animation: sparks 5s linear infinite;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+@keyframes sparks {
+  0%, 100% { background-position: 0 0; opacity: 0.15; }
+  50% { background-position: 60% 60%; opacity: 0.35; }
+}
+
+/* ⚡ Glitch text */
+.godmode-btn span {
+  display: inline-block;
+  animation: glitch 4s infinite;
+}
+
+@keyframes glitch {
+  0%, 100% { text-shadow: 0 0 12px #ff3e3e, 0 0 24px #ff7b00; }
+  45% { text-shadow: -2px 0 #ff3e3e, 2px 0 #00ffff; }
+  50% { text-shadow: 2px 0 #ff0000, -2px 0 #00ffea; }
+  55% { text-shadow: -2px 0 #ff7b00, 2px 0 #00ffff; }
+}
+
+/* ⚡ Orbiting neon particles with comet trails */
+.orbit {
+  position: absolute;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background: #ff3e3e;
+  box-shadow: 0 0 12px #ff3e3e, 0 0 24px #ff7b00;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: orbit 7s linear infinite;
+}
+
+.orbit:nth-child(2) {
+  width: 7px;
+  height: 7px;
+  background: #00ffff;
+  box-shadow: 0 0 12px #00ffff, 0 0 24px #007bff;
+  animation-duration: 9s;
+}
+
+.orbit:nth-child(3) {
+  width: 12px;
+  height: 12px;
+  background: #ff7b00;
+  box-shadow: 0 0 15px #ff7b00, 0 0 28px #ff3e3e;
+  animation-duration: 11s;
+}
+
+@keyframes orbit {
+  0%   { transform: rotate(0deg) translateX(130px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(130px) rotate(-360deg); }
+}
+
+/* ⚡ Glowing comet trail */
+.orbit::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.6), transparent);
+  top: 50%;
+  left: -60px;
+  transform: translateY(-50%);
+  filter: blur(2px);
+  animation: trail 1s linear infinite;
+}
+
+@keyframes trail {
+  from { opacity: 1; width: 60px; }
+  to { opacity: 0; width: 0; }
+}
+
+/* ⚡ Hologram diagonal scan */
+.scan {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(135deg, transparent 40%, rgba(0,255,255,0.2) 50%, transparent 60%);
+  animation: scanMove 5s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scanMove {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(100%); }
+}
+
+/* ⚡ Aura cloud breathing */
+.aura {
+  position: absolute;
+  inset: -40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,62,62,0.6), rgba(255,123,0,0.4), rgba(0,255,255,0.25), transparent 70%);
+  filter: blur(60px);
+  z-index: -2;
+  animation: auraBreath 6s ease-in-out infinite;
+}
+
+@keyframes auraBreath {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.3); opacity: 0.9; }
+}
+
+/* ⚡ Hover cinematic lift */
+.godmode-btn:hover {
+  transform: scale(1.15) rotateX(18deg);
+  box-shadow: 0 0 50px rgba(255, 62, 62, 1),
+              0 0 120px rgba(255, 123, 0, 0.95),
+              0 0 180px rgba(0, 255, 255, 0.85);
+}
+</style>
+
+
+  
+    <!-- ⚡ Premium Vision Button -->
+<a href="#vision" class="vision-btn group relative inline-block px-6 py-3">
+  <span class="vision-text">VISION</span>
+  <span class="vision-border"></span>
+</a>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Tektur:wght@800&display=swap');
+
+.vision-btn {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.vision-text {
+  font-family: 'Tektur', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-block;
+  background: linear-gradient(90deg, #f59e0b, #f97316, #ef4444);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.5s ease;
+}
+
+/* Premium glowing animated border */
+.vision-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  background: conic-gradient(
+    from 0deg,
+    #f59e0b,
+    #f97316,
+    #ef4444,
+    #f59e0b
+  );
+  background-size: 200% 200%;
+  animation: rotateBorder 4s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  padding: 3px; /* border thickness */
+}
+
+/* Hover State → White text with glow */
+.vision-btn:hover .vision-text {
+  -webkit-text-fill-color: #fff;
+  background: none;
+  text-shadow: 0 0 12px #fff, 0 0 24px #f97316, 0 0 48px #ef4444;
+}
+
+.vision-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Animated rotating border effect */
+@keyframes rotateBorder {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+</style>
+
+
+<a href="#Certificates" class="Certificates-btn group relative inline-block px-6 py-3">
+  <span class="Certificates-text">Certificates</span>
+  <span class="Certificates-border"></span>
+</a>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Tektur:wght@800&display=swap');
+
+.Certificates-btn {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.Certificates-text {
+  font-family: 'Tektur', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-block;
+  background: linear-gradient(90deg, #2dd4bf, #0ea5e9, #22d3ee);
+
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.5s ease;
+}
+
+/* Premium glowing animated border */
+.Certificates-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  border: 2px solid transparent;
+ background: conic-gradient(
+  from 0deg,
+  #2dd4bf,
+  #0ea5e9,
+  #22d3ee,
+  #2dd4bf
+);
+
+  background-size: 200% 200%;
+  animation: rotateBorder 4s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  padding: 3px; /* border thickness */
+}
+
+/* Hover State → White text with glow */
+.Certificates-btn:hover .Certificates-text {
+-webkit-text-fill-color: #fff;
+background: none;
+text-shadow: 0 0 12px #fff, 0 0 24px #0ea5e9, 0 0 48px #22d3ee;
+
+}
+
+.Certificates-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Animated rotating border effect */
+@keyframes rotateBorder {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+</style>
+
+
+
+   <a href="#Projects" class="Projects-btn group relative inline-block px-6 py-3">
+  <span class="Projects-text">Projects</span>
+  <span class="Projects-border"></span>
+</a>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Tektur:wght@800&display=swap');
+
+.Projects-btn {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.Projects-text {
+  font-family: 'Tektur', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-block;
+  background: linear-gradient(90deg, #8b5cf6, #6366f1, #3b82f6);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.5s ease;
+}
+
+/* Premium glowing animated border */
+.Projects-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  background: conic-gradient(
+    from 0deg,
+    #8b5cf6,
+    #6366f1,
+    #3b82f6,
+    #8b5cf6
+  );
+  background-size: 200% 200%;
+  animation: rotateBorder 4s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  padding: 3px; /* border thickness */
+}
+
+/* Hover State → White text with glow */
+.Projects-btn:hover .Projects-text {
+  -webkit-text-fill-color: #fff;
+  background: none;
+  text-shadow: 0 0 12px #fff, 0 0 24px #6366f1, 0 0 48px #3b82f6;
+}
+
+.Projects-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Animated rotating border effect */
+@keyframes rotateBorder {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+
+
+
+ <!-- 🌐 Ultra-Level "Let's Connect" Button -->
+<a href="#connect" class="connect-ultra relative inline-block px-8 py-3">
+  <span class="connect-ultra-text">Let's Connect</span>
+  <span class="connect-ultra-border"></span>
+  <span class="connect-pulse"></span>
+</a>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Tektur:wght@800&display=swap');
+
+.connect-ultra {
+  position: relative;
+  display: inline-block;
+  border-radius: 999px;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* ⚡ Text styling */
+.connect-ultra-text {
+  font-family: 'Tektur', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+  transition: all 0.6s ease;
+  background: linear-gradient(90deg, #c084fc, #f472b6, #fb7185);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 🌈 Liquid flowing gradient border */
+.connect-ultra-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  padding: 3px;
+  background: linear-gradient(270deg, #c084fc, #f472b6, #fb7185, #c084fc);
+  background-size: 400% 400%;
+  animation: liquidFlow 6s linear infinite;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  z-index: 1;
+}
+
+@keyframes liquidFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* 🔵 Pulsing nodes (data packets traveling) */
+.connect-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  pointer-events: none;
+  background: radial-gradient(circle at 10% 50%, rgba(255,255,255,0.8) 3px, transparent 4px),
+              radial-gradient(circle at 30% 50%, rgba(255,255,255,0.6) 2px, transparent 3px),
+              radial-gradient(circle at 70% 50%, rgba(255,255,255,0.8) 3px, transparent 4px),
+              radial-gradient(circle at 90% 50%, rgba(255,255,255,0.7) 2px, transparent 3px);
+  background-size: 200% auto;
+  animation: pulseTravel 3s linear infinite;
+  z-index: 2;
+  opacity: 0.8;
+}
+
+@keyframes pulseTravel {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* ✨ Hover: Connection established */
+.connect-ultra:hover .connect-ultra-text {
+  -webkit-text-fill-color: #fff;
+  text-shadow: 0 0 12px #fff, 0 0 28px #f472b6, 0 0 48px #fb7185;
+}
+
+.connect-ultra::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255,255,255,0.25) 25%, transparent 70%);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.6s ease;
+  z-index: 0;
+}
+
+.connect-ultra:hover::after {
+  opacity: 1;
+  transform: scale(1.4);
+}
+</style>
+
+  </div>
+</nav>
+
+
+      <body class="bg-black text-white font-[Poppins]">
+    <!-- Hero / Intro Section -->
+    <section id="about" class="min-h-screen flex flex-col md:flex-row items-center justify-center gap-12 px-8 py-20">
+      
+      <!-- Left: Profile Picture -->
+<div data-aos="fade-right" class="flex-shrink-0 relative group">
+  <!-- Multi-layered animated glow -->
+  <div class="absolute -inset-3 bg-gradient-to-r from-[#ffd700] via-[#3b82f6] to-[#22d3ee] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000 animate-glow-pulse"></div>
+  <div class="absolute -inset-4 bg-gradient-to-r from-[#22d3ee] via-[#ffd700] to-[#3b82f6] rounded-full opacity-0 group-hover:opacity-70 transition-opacity duration-1200 animate-glow-rotate" style="animation-delay: 0.5s"></div>
+  
+  <!-- Floating particles -->
+  <div class="absolute -inset-6">
+    <div class="absolute w-2 h-2 bg-[#ffd700] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000 animate-float" style="top: 20%; left: 20%; animation-delay: 0.1s"></div>
+    <div class="absolute w-1.5 h-1.5 bg-[#3b82f6] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000 animate-float" style="top: 70%; left: 80%; animation-delay: 0.3s"></div>
+    <div class="absolute w-1 h-1 bg-[#22d3ee] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000 animate-float" style="top: 40%; left: 60%; animation-delay: 0.5s"></div>
+  </div>
+
+  <img src="/me.jpg" alt="Talha Abdul Rauf" 
+       class="relative w-48 h-48 md:w-64 md:h-64 rounded-full object-cover border-2 border-transparent 
+              shadow-[0_0_30px_rgba(255,215,0,0.4)]
+              group-hover:shadow-[0_0_50px_rgba(59,130,246,0.6),0_0_70px_rgba(34,211,238,0.4)]
+              transition-all duration-700
+              group-hover:scale-110
+              group-hover:brightness-110
+              z-10" />
+  
+  <!-- Holographic grid overlay -->
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,215,0,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(59,130,246,0.1)_1px,transparent_1px)] bg-[size:20px_20px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+</div>
+
+<style>
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.3; filter: blur(20px); }
+  50% { opacity: 0.7; filter: blur(25px); }
+}
+@keyframes glow-rotate {
+  0% { transform: rotate(0deg) scale(1); }
+  100% { transform: rotate(360deg) scale(1.1); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-10px) scale(1.2); }
+}
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+.animate-glow-rotate {
+  animation: glow-rotate 6s linear infinite;
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+</style>
+
+      <!-- Right: Intro + Education -->
+      <div data-aos="fade-left" class="max-w-2xl text-center md:text-left">
+        <h1 class="text-3xl md:text-5xl font-extrabold mb-4">
+          Hi, I'm <span class="bg-gradient-to-r from-red-500 via-orange-400 to-yellow-500 bg-clip-text text-transparent">Talha Abdul Rauf</span>
+        </h1>
+        <p class="text-lg md:text-xl text-gray-300 leading-relaxed mb-6">
+          Aspiring <span class="text-red-400 font-semibold">AI & Machine Learning Engineer</span> <br>
+          Passionate about Data Science, Deep Learning, and Advanced AI Systems.
+        </p>
+<!-- Education Section -->
+<div class="relative p-8 bg-gradient-to-br from-[#0c2c4a] via-[#102a43] to-[#0c2c4a] rounded-2xl border-2 border-transparent shadow-2xl shadow-blue-900/30 overflow-hidden group">
+  <!-- Animated corner lines with glow -->
+  <div class="absolute top-0 left-0 w-4 h-0.5 bg-gradient-to-r from-[#ffd700] to-transparent group-hover:w-16 transition-all duration-700 group-hover:shadow-[0_0_10px_#ffd700]"></div>
+  <div class="absolute top-0 left-0 h-4 w-0.5 bg-gradient-to-b from-[#ffd700] to-transparent group-hover:h-16 transition-all duration-700 group-hover:shadow-[0_0_10px_#ffd700]"></div>
+  
+  <div class="absolute top-0 right-0 w-4 h-0.5 bg-gradient-to-l from-[#3b82f6] to-transparent group-hover:w-16 transition-all duration-700 group-hover:shadow-[0_0_10px_#3b82f6]"></div>
+  <div class="absolute top-0 right-0 h-4 w-0.5 bg-gradient-to-b from-[#3b82f6] to-transparent group-hover:h-16 transition-all duration-700 group-hover:shadow-[0_0_10px_#3b82f6]"></div>
+  
+  <div class="absolute bottom-0 left-0 w-4 h-0.5 bg-gradient-to-r from-[#22d3ee] to-transparent group-hover:w-16 transition-all duration-700 group-hover:shadow-[0_0_10px_#22d3ee]"></div>
+  <div class="absolute bottom-0 left-0 h-4 w-0.5 bg-gradient-to-t from-[#22d3ee] to-transparent group-hover:h-16 transition-all duration-700 group-hover:shadow-[0_0_10px_#22d3ee]"></div>
+  
+  <div class="absolute bottom-0 right-0 w-4 h-0.5 bg-gradient-to-l from-[#ffd700] to-transparent group-hover:w-16 transition-all duration-700 group-hover:shadow-[0_0_10px_#ffd700]"></div>
+  <div class="absolute bottom-0 right-0 h-4 w-0.5 bg-gradient-to-t from-[#ffd700] to-transparent group-hover:h-16 transition-all duration-700 group-hover:shadow-[0_0_10px_#ffd700]"></div>
+
+  <!-- Animated background grid -->
+  <div class="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity duration-1000">
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffd700_1px,transparent_1px),linear-gradient(to_bottom,#ffd700_1px,transparent_1px)] bg-[size:20px_20px]"></div>
+  </div>
+  
+  <div class="relative z-10 space-y-4">
+    <div class="flex items-center space-x-3">
+      <div class="w-2 h-8 bg-gradient-to-b from-[#ffd700] to-[#ffcc00] rounded-full group-hover:scale-y-125 transition-transform duration-500"></div>
+      <h2 class="text-2xl font-bold bg-gradient-to-r from-[#ffd700] via-[#ffed4e] to-[#ffcc00] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,215,0,0.7)] group-hover:drop-shadow-[0_0_20px_rgba(255,215,0,0.9)] transition-all duration-500" style="font-family: 'Poppins', sans-serif; letter-spacing: 1px;">
+        🎓 EDUCATION
+      </h2>
+    </div>
+    
+
+
+    
+
+<p class="text-lg font-semibold text-white tracking-wide pl-5 group-hover:translate-x-2 transition-transform duration-500 relative overflow-hidden">
+  <span class="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-[#ffd700] via-[#3b82f6] to-[#22d3ee] group-hover:animate-pulse"></span>
+  
+  B.Sc. Data Science & AI – 
+  <span class="text-[#ffd700] font-bold relative">
+    <span class="absolute -inset-1 bg-[#ffd700] rounded-lg blur-md group-hover:blur-xl group-hover:opacity-70 opacity-0 transition-all duration-700"></span>
+    <span class="relative drop-shadow-[0_0_15px_rgba(255,215,0,0.4)] group-hover:drop-shadow-[0_0_25px_rgba(255,215,0,0.8)] transition-all duration-500">
+      UET Lahore
+      
+    </span>
+  </span>
+  
+  <span class="text-[#ffd700] font-bold text-sm ml-2 relative">
+    <span class="absolute -inset-1 bg-[#ffd700] rounded-full blur group-hover:blur-md opacity-0 group-hover:opacity-50 transition-all duration-500"></span>
+    <span class="relative inline-flex items-center">
+      <span class="w-1 h-1 bg-[#ffd700] rounded-full mr-1 animate-ping group-hover:animate-none"></span>
+      (2025 - 2029)
+    </span>
+  </span>
+  
+</p>
+    
+
+
+
+
+
+<p class="text-lg font-semibold text-white tracking-wide pl-5 group-hover:translate-x-2 transition-transform duration-500 relative">
+  <span class="absolute left-0 top-1/2 w-2 h-0.5 bg-gradient-to-r from-[#22d3ee] to-[#a855f7] to-transparent -translate-y-1/2 group-hover:w-6 transition-all duration-700 group-hover:shadow-[0_0_8px_#22d3ee]"></span>
+  Intermediate in Computer Science – 
+  <span class="text-transparent bg-gradient-to-r from-[#22d3ee] via-[#a855f7] to-[#ec4899] bg-clip-text font-bold drop-shadow-[0_0_10px_rgba(168,85,247,0.4)] group-hover:drop-shadow-[0_0_15px_rgba(168,85,247,0.6)] transition-all duration-500">
+    Govt Postgraduate College Sahiwal
+  </span>
+  <span class="text-[#a855f7] text-sm ml-2 font-mono bg-gradient-to-r from-[#22d3ee]/15 via-[#a855f7]/15 to-[#ec4899]/15 px-2 py-0.5 rounded-lg group-hover:bg-gradient-to-r from-[#22d3ee]/25 via-[#a855f7]/25 to-[#ec4899]/25 transition-all duration-500 border border-[#a855f7]/30 group-hover:border-[#a855f7]/50">
+    ⌛ (2023 - 2024)
+  </span>
+</p>
+
+   
+    <!-- Ultra Premium Description -->
+    <div class="pl-5 border-l-2 border-[#ffd700] ml-3 group-hover:border-[#3b82f6] transition-all duration-700">
+
+
+
+<p class="text-m uppercase tracking-widest text-gray-400 font-bold">
+  <span class="text-[#ffd700]">Deeply engaged in </span>
+<span class="relative">
+  <span class="relative bg-gradient-to-r from-[#ff00cc] via-[#ff9900] to-[#00ccff] bg-clip-text text-transparent font-black text-xl">
+    Artificial Intelligence
+  </span>
+</span> & 
+<span class="bg-gradient-to-r from-[#ffd700] via-[#3b82f6] to-[#22d3ee] bg-clip-text text-transparent font-bold animate-text-shine" style="text-shadow: 0 0 10px rgba(59, 130, 246, 0.4), 0 0 20px rgba(34, 211, 238, 0.3);">
+  Evolving through CV, NLP, Generative AI , Reinforcement Learning (RL) , Robotics & Autonomous Systems
+</span>
+</p>
+
+<style>
+@keyframes text-shine {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-text-shine {
+  background-size: 200% 200%;
+  animation: text-shine 3s ease infinite;
+}
+</style>
+      
+
+
+      <p class="text-sm text-gray-300 mb-2 leading-relaxed">
+        <span class="bg-gradient-to-r from-[#ffd700] to-[#3b82f6] bg-clip-text text-transparent font-bold">Exploring the full landscape of Machine Learning with a self-taught drive</span>  
+        <span class="text-[#22d3ee] font-semibold"> .</span>
+      </p>
+     
+
+    </div>
+  </div>
+</div>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&display=swap');
+</style>
+</div>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&display=swap');
+</style>
+</div>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&display=swap');
+
+@keyframes border-rotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-border-rotate {
+  background-size: 200% 200%;
+  animation: border-rotate 3s ease infinite;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  padding: 1px;
+}
+</style>
+</div>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&display=swap');
+</style>
+</div>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&display=swap');
+.glow-purple {
+  text-shadow: 0 0 10px #a855f7, 0 0 20px #a855f7;
+  animation: pulsate-purple 2s ease-in-out infinite alternate;
+}
+.glow-green {
+  text-shadow: 0 0 10px #10b981, 0 0 20px #10b981;
+  animation: pulsate-green 2s ease-in-out infinite alternate;
+}
+@keyframes pulsate-purple {
+  0% { text-shadow: 0 0 10px #a855f7, 0 0 20px #a855f7; }
+  100% { text-shadow: 0 0 15px #a855f7, 0 0 30px #a855f7, 0 0 40px #a855f7; }
+}
+@keyframes pulsate-green {
+  0% { text-shadow: 0 0 10px #10b981, 0 0 20px #10b981; }
+  100% { text-shadow: 0 0 15px #10b981, 0 0 30px #10b981, 0 0 40px #10b981; }
+}
+</style>
+</div>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&display=swap');
+</style>
+</div>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&display=swap');
+</style>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
+</style>
+      </div>
+    </section>
+  </body>
+
+<section id="vision" class="relative py-32 bg-gradient-to-b from-gray-950 via-black to-gray-950 text-center overflow-hidden">
+  <div class="max-w-4xl mx-auto px-6">
+
+    <div class="relative bg-black/40 border border-amber-400/40 backdrop-blur-xl rounded-3xl p-12 
+                shadow-[0_0_40px_#fbbf24aa] hover:shadow-[0_0_70px_#f59e0b] transition-all duration-700"
+         data-aos="zoom-in">
+      
+      <!-- Neon Aura -->
+      <div class="absolute inset-0 rounded-3xl 
+                  bg-gradient-to-r from-amber-25 via-orange-55 to-yellow-100 
+                  opacity-0 blur-3xl animate-pulse"></div>
+
+      <!-- Heading -->
+      <h2 class="relative text-5xl md:text-6xl font-extrabold 
+                 bg-gradient-to-r from-amber-300 via-orange-400 to-yellow-500 
+                 bg-clip-text text-transparent drop-shadow-[0_0_25px_#fbbf24] mb-8">
+        My Vision
+      </h2>
+
+      <!-- Content -->
+<p class="relative text-lg md:text-2xl text-gray-100 leading-relaxed font-medium" data-aos="fade-up">
+  To advance AI (<span class="bg-gradient-to-r from-[#a855f7] via-[#c084fc] to-[#e879f9] bg-clip-text text-transparent font-semibold hover:animate-text-wave">Artificial Intelligence</span>) as both an engineer and researcher:
+</p>
+
+<p class="relative text-lg md:text-2xl text-gray-100 leading-relaxed font-medium mt-4" data-aos="fade-up" data-aos-delay="200">
+  <span class="bg-gradient-to-r from-[#ff6b35] via-[#fd5e53] to-[#ffd166] bg-clip-text text-transparent font-extrabold hover:animate-float">
+    I aim to explore domains such as Computer Vision, NLP, Generative AI, and Reinforcement Learning
+  </span>  —
+  that <span class="text-[#ef4444] font-bold hover:animate-pulse-slow">drive innovation,</span>,  
+  transform <span class="text-[#ec4899] font-bold hover:animate-bounce-slow">industries</span>,  
+  and shape a <span class="text-[#facc15] font-bold hover:animate-glow-gold">more, intelligent,  connected future</span>.
+</p>
+
+<style>
+@keyframes text-wave {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; transform: translateY(-2px); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes glow-gold {
+  0%, 100% { text-shadow: 0 0 15px rgba(250, 204, 21, 0.5); }
+  50% { text-shadow: 0 0 25px rgba(250, 204, 21, 0.8), 0 0 35px rgba(250, 204, 21, 0.6); }
+}
+.hover\:animate-text-wave:hover { 
+  animation: text-wave 2s ease-in-out infinite; 
+  background-size: 200% 200%;
+}
+.hover\:animate-float:hover { animation: float 3s ease-in-out infinite; }
+.hover\:animate-pulse-slow:hover { animation: pulse-slow 2s ease-in-out infinite; }
+.hover\:animate-bounce-slow:hover { animation: bounce-slow 2.5s ease-in-out infinite; }
+.hover\:animate-glow-gold:hover { animation: glow-gold 2s ease-in-out infinite; }
+</style>
+
+
+
+      <!-- Highlight Badge -->
+      <!-- Ultra Modern Highlight Badge -->
+<div class="relative mt-10 flex justify-center" data-aos="fade-up" data-aos-delay="200">
+  <div class="relative group cursor-default">
+    <!-- Multi-layered glow effects -->
+    <div class="absolute -inset-3 bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-500 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 group-hover:blur-2xl transition-all duration-1000 animate-pulse"></div>
+    <div class="absolute -inset-2 bg-gradient-to-r from-amber-400/40 via-yellow-500/40 to-orange-500/40 rounded-2xl blur-lg opacity-40 group-hover:opacity-60 transition-all duration-700"></div>
+    
+    <!-- SMALLER Animated border - positioned behind -->
+    <div class="absolute -inset-0.5 bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-500 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000 animate-rotate-border z-0"></div>
+    
+    <!-- Main badge content -->
+    <span class="relative px-8 py-4 bg-black/80 border border-amber-400/30 text-amber-200 rounded-2xl 
+                 shadow-[0_0_30px_rgba(251,191,36,0.6)] 
+                 group-hover:shadow-[0_0_60px_rgba(245,158,11,0.8),0_0_80px_rgba(251,191,36,0.4)]
+                 backdrop-blur-xl 
+                 transition-all duration-500
+                 group-hover:scale-105
+                 group-hover:border-amber-400/60
+                 font-semibold text-lg
+                 flex items-center space-x-3">
+      <span class="flex space-x-2">
+        <span class="animate-bounce" style="animation-delay: 0s;">🌐</span>
+        <span class="animate-bounce" style="animation-delay: 0.2s;">💡</span>
+        <span class="animate-bounce" style="animation-delay: 0.4s;">🤖</span>
+        <span class="animate-bounce" style="animation-delay: 0.6s;">🗣️</span>
+      </span>
+      <span class="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent font-bold">
+        Advancing Intelligence, Powered by AI
+      </span>
+    </span>
+
+    <!-- Floating particles -->
+    <div class="absolute -inset-4 opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
+      <div class="absolute w-2 h-2 bg-amber-400 rounded-full animate-float" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+      <div class="absolute w-1.5 h-1.5 bg-yellow-500 rounded-full animate-float" style="top: 60%; left: 80%; animation-delay: 0.3s;"></div>
+      <div class="absolute w-1 h-1 bg-orange-500 rounded-full animate-float" style="top: 40%; left: 50%; animation-delay: 0.6s;"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+@keyframes rotate-border {
+  0% { transform: rotate(0deg); opacity: 0.7; }
+  100% { transform: rotate(0deg); opacity: 1; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.7; }
+  50% { transform: translateY(-8px) scale(1.1); opacity: 1; }
+}
+.animate-rotate-border {
+  animation: rotate-border 3s linear infinite;
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+</style>
+
+    </div>
+  </div>
+</section>
+
+
+<section id="Certificates" class="py-20 bg-gradient-to-b from-gray-900 via-black to-gray-900 text-center px-6 relative overflow-hidden">
+  <!-- Animated background particles -->
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute w-1 h-1 bg-emerald-500 rounded-full animate-pulse" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+    <div class="absolute w-1.5 h-1.5 bg-teal-500 rounded-full animate-pulse" style="top: 60%; left: 80%; animation-delay: 2s;"></div>
+    <div class="absolute w-2 h-2 bg-green-500 rounded-full animate-pulse" style="top: 40%; left: 50%; animation-delay: 4s;"></div>
+  </div>
+
+  <h2 class="text-4xl md:text-5xl font-bold mb-12 bg-gradient-to-r from-green-400 via-emerald-500 to-teal-400 bg-clip-text text-transparent relative z-10">
+    My Certificates
+  </h2>
+
+  <!-- GRID CONTAINER -->
+  <div class="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-8 relative z-10">
+    
+    <CertificateCard 
+      title="Machine Learning Algorithms" 
+      image="/certificates/uniathena.jpg" 
+      link="https://docs.uniathena.com/prod/course/certificate/322_1753180620_certificate.jpg"
+      organization="UniAthena"
+      logo="/logos/uniathena.svg"
+      color="from-green-400 via-emerald-500 to-teal-400"
+    />
+    
+  </div>
+</section>
+
+  
+<!-- Projects Section -->
+<section id="Projects" class="relative py-24 bg-gradient-to-br from-[#020617] via-[#0f172a] to-[#020617] text-white overflow-hidden">
+
+  <!-- Animated Background Blobs -->
+  <div class="absolute -top-40 -left-40 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
+  <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+    
+    <!-- Section Title -->
+    <h2 data-aos="fade-up" data-aos-duration="1000" class="text-center text-5xl md:text-6xl font-extrabold mb-20 tracking-wide">
+      <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500 drop-shadow-lg">
+        🗂️Projects
+      </span>
+    </h2>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+
+      <!-- Project Card 1 -->
+      <div data-aos="zoom-in-up" data-aos-duration="1200"
+        class="group relative bg-white/5 backdrop-blur-md border border-cyan-400/30 rounded-3xl shadow-xl overflow-hidden transition-all duration-700 hover:-translate-y-3 hover:shadow-cyan-500/50 hover:border-cyan-400/70">
+        
+        <!-- Image -->
+        <div class="relative overflow-hidden">
+          <img src="/projects/streamlit-app.jpg" alt="Titanic Project"
+            class="w-full h-56 object-cover transform group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="p-8">
+          <h3 class="text-2xl font-bold text-cyan-300 mb-3 group-hover:text-cyan-400 transition-colors">
+            Titanic Data Explorer 🌊
+          </h3>
+          <p class="text-gray-300 text-sm mb-6 leading-relaxed">
+            My <span class="text-pink-400">first ML app</span> deployed on Streamlit 🚢.  
+            <em class="text-gray-400">“Big things often have small beginnings.” – T.E. Lawrence</em>
+          </p>
+          <div class="flex gap-4">
+            <a href="https://your-streamlit-link.streamlit.app" target="_blank"
+              class="px-5 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl text-sm font-semibold shadow-md hover:shadow-cyan-400/50 hover:scale-105 transition-all duration-300">
+              🔗 Live Demo
+            </a>
+            <a href="https://github.com/TALHA-ABDUL-RAUF" target="_blank"
+              class="px-5 py-2.5 bg-gray-800 hover:bg-gray-700 rounded-xl text-sm font-semibold shadow-md hover:shadow-gray-500/40 hover:scale-105 transition-all duration-300">
+              💻 GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Card 2 -->
+      <div data-aos="zoom-in-up" data-aos-delay="200"
+        class="group relative bg-white/5 backdrop-blur-md border border-purple-400/30 rounded-3xl shadow-xl overflow-hidden transition-all duration-700 hover:-translate-y-3 hover:shadow-purple-500/50 hover:border-purple-400/70">
+        
+        <div class="overflow-hidden relative">
+          <img src="/projects/ecommerce.jpg" alt="E-commerce"
+            class="w-full h-56 object-cover transform group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        </div>
+
+        <div class="p-8">
+          <h3 class="text-2xl font-bold text-purple-300 mb-3 group-hover:text-purple-400 transition-colors">
+            Futuristic E-commerce 🛒
+          </h3>
+          <p class="text-gray-300 text-sm mb-6 leading-relaxed">
+            A scalable e-commerce system with immersive UI and quantum-ready payment modules.
+          </p>
+          <a href="#"
+            class="px-5 py-2.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl text-sm font-semibold shadow-md hover:shadow-purple-400/50 hover:scale-105 transition-all duration-300">
+            💻 GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- Project Card 3 -->
+      <div data-aos="zoom-in-up" data-aos-delay="400"
+        class="group relative bg-white/5 backdrop-blur-md border border-emerald-400/30 rounded-3xl shadow-xl overflow-hidden transition-all duration-700 hover:-translate-y-3 hover:shadow-emerald-500/50 hover:border-emerald-400/70">
+        
+        <div class="overflow-hidden relative">
+          <img src="/projects/ai-dashboard.jpg" alt="AI Dashboard"
+            class="w-full h-56 object-cover transform group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        </div>
+
+        <div class="p-8">
+          <h3 class="text-2xl font-bold text-emerald-300 mb-3 group-hover:text-emerald-400 transition-colors">
+            AI Intelligence Dashboard 🧠
+          </h3>
+          <p class="text-gray-300 text-sm mb-6 leading-relaxed">
+            A real-time dashboard with generative AI insights, anomaly detection & predictive analytics.
+          </p>
+          <a href="#"
+            class="px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl text-sm font-semibold shadow-md hover:shadow-emerald-400/50 hover:scale-105 transition-all duration-300">
+            🔗 Live Demo
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+    <!-- TechStack (component) -->
+    <TechStack />
+
+    <!-- Experience, Contact etc... (add below) -->
+
+    <!-- AOS JS init (keep at bottom) -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        AOS.init({ duration: 1200, once: true });
+      });
+    </script>
+  </body>
+</html>
+<!-- ================== Let's Connect Section ================== -->
+<section id="connect" class="relative py-24 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] text-white overflow-hidden">
+
+  <!-- Background Neural Net -->
+  <svg id="neural-bg" class="absolute inset-0 w-full h-full opacity-20">
+    <line x1="10%" y1="20%" x2="90%" y2="20%" stroke="cyan" stroke-width="1.5" />
+    <line x1="20%" y1="40%" x2="80%" y2="40%" stroke="magenta" stroke-width="1.5" />
+    <line x1="15%" y1="60%" x2="85%" y2="60%" stroke="lime" stroke-width="1.5" />
+    <line x1="25%" y1="80%" x2="75%" y2="80%" stroke="orange" stroke-width="1.5" />
+  </svg>
+
+  <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+    <!-- Typing Animation Heading -->
+    <h2 id="typing-text"
+        class="text-4xl md:text-6xl font-extrabold mb-6 tracking-wide text-pink-400">
+    </h2>
+<p class="connect-desc">
+🌀 Hi there! 
+</p>
+<p class="connect-desc"> 
+🔬 Let's Connect & Explore Possibilities | AI Research  • Engineering • Data Science • Tech   </p>
+<p class="connect-desc"> 
+ </p>
+<style>
+  .connect-desc {
+    font-weight: 700;
+    font-size: 1.35rem;
+    line-height: 2rem;
+    text-align: center;
+    max-width: 42rem;
+    margin: 2rem auto;
+    color: #e2e8f0; /* light gray for readability */
+    background-image: linear-gradient(
+      to right,
+      #38bdf8,
+      #a78bfa,
+      #f472b6
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* soft glow, not heavy */
+    text-shadow: 0 0 12px rgba(168, 85, 247, 0.25);
+  }
+  
+</style>
+
+<script>
+  import gsap from "gsap";
+
+  window.addEventListener("load", () => {
+    gsap.from(".connect-desc", {
+      opacity: 0,
+      y: 25,
+      duration: 1.4,
+      ease: "power3.out",
+    });
+  });
+</script>
+
+
+    <!-- Icons Row -->
+    <div class="flex flex-wrap justify-center gap-8">
+
+      <!-- GitHub -->
+      <a href="https://github.com/TALHA-ABDUL-RAUF" target="_blank"
+         class="p-4 rounded-full bg-gray-800 hover:bg-gray-700 transform hover:scale-125 transition duration-500 shadow-lg">
+        <svg class="w-8 h-8 fill-current text-white" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill-rule="evenodd"
+            d="M12 0C5.37 0 0 5.37 0 12a12 12 0 008.2 11.38c.6.11.82-.26.82-.58v-2.1c-3.34.73-4.05-1.61-4.05-1.61-.55-1.41-1.34-1.78-1.34-1.78-1.09-.74.08-.73.08-.73 1.21.09 1.84 1.25 1.84 1.25 1.07 1.84 2.81 1.31 3.5 1 .11-.77.42-1.31.76-1.61-2.66-.3-5.46-1.33-5.46-5.91 0-1.31.47-2.38 1.25-3.22-.13-.3-.54-1.52.12-3.16 0 0 1.01-.32 3.3 1.23a11.4 11.4 0 016 0c2.3-1.55 3.3-1.23 3.3-1.23.66 1.64.25 2.86.12 3.16.78.84 1.25 1.91 1.25 3.22 0 4.59-2.8 5.61-5.47 5.91.43.37.82 1.1.82 2.22v3.29c0 .32.22.69.82.58A12 12 0 0024 12c0-6.63-5.37-12-12-12z"
+            clip-rule="evenodd" />
+        </svg>
+      </a>
+
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/talha-abdul-rauf-771031347/" target="_blank"
+         class="p-4 rounded-full bg-gray-800 hover:bg-gray-700 transform hover:scale-125 transition duration-500 shadow-lg">
+        <svg class="w-8 h-8 fill-current text-blue-400" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4.98 3.5C4.98 5 3.9 6 2.5 6S0 5 0 3.5C0 2 1.1 1 2.5 1S4.98 2 4.98 3.5zM.2 8.2h4.6V24H.2V8.2zM8.4 8.2h4.4v2.2h.1c.6-1 2-2.4 4.2-2.4 4.5 0 5.4 3 5.4 6.8V24h-4.6v-7.9c0-1.9 0-4.4-2.7-4.4-2.7 0-3.1 2.1-3.1 4.3V24H8.4V8.2z"/>
+        </svg>
+      </a>
+
+      <!-- Gmail -->
+      <a href="mailto:yourmail@gmail.com"
+         class="p-4 rounded-full bg-gray-800 hover:bg-gray-700 transform hover:scale-125 transition duration-500 shadow-lg">
+        <svg class="w-8 h-8 fill-current text-red-400" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 12.713L0 4.5V19.5C0 20.328 0.672 21 1.5 21h21c.828 0 1.5-.672 1.5-1.5V4.5l-12 8.213z"/>
+          <path d="M12 12.713L24 4.5H0l12 8.213z"/>
+        </svg>
+      </a>
+
+      <!-- Instagram -->
+      <a href="https://instagram.com/yourusername" target="_blank"
+         class="p-4 rounded-full bg-gray-800 hover:bg-gray-700 transform hover:scale-125 transition duration-500 shadow-lg">
+        <svg class="w-8 h-8 fill-current text-pink-400" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7.5 2h9A5.5 5.5 0 0122 7.5v9A5.5 5.5 0 0116.5 22h-9A5.5 5.5 0 012 16.5v-9A5.5 5.5 0 017.5 2zm0 2C6.12 4 5 5.12 5 6.5v11c0 1.38 1.12 2.5 2.5 2.5h11c1.38 0 2.5-1.12 2.5-2.5v-11C21 5.12 19.88 4 18.5 4h-11zM12 7a5 5 0 110 10 5 5 0 010-10zm6.5-.25a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================== Scripts ================== -->
+<script is:module>
+  import gsap from "gsap";
+
+  // Typing effect
+  const text = "⚡ Let's Connect";
+  let index = 0;
+  function typeEffect() {
+    if (index < text.length) {
+      document.getElementById("typing-text").textContent += text.charAt(index);
+      index++;
+      setTimeout(typeEffect, 120);
+    }
+  }
+
+  if (typeof window !== "undefined") {
+    window.addEventListener("DOMContentLoaded", () => {
+      typeEffect();
+
+      // Animate neural lines with GSAP
+      gsap.fromTo(
+        "#neural-bg line",
+        { strokeDasharray: 500, strokeDashoffset: 500 },
+        {
+          strokeDashoffset: 0,
+          duration: 3,
+          repeat: -1,
+          yoyo: true,
+          stagger: 0.5,
+          ease: "power2.inOut",
+        }
+      );
+    });
+  }
+</script>
+<Footer />

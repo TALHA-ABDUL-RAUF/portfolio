@@ -1,0 +1,84 @@
+---
+import gsap from "gsap";
+---
+
+<footer class="footer-container">
+  <p class="footer-text">🔬 Powered by Curiosity, .
+
+🛠️  Built with Passion | Talha Abdul Rauf</p>
+</footer>
+
+<style>
+  .footer-container {
+    text-align: center;
+    padding: 1rem;
+    background: #0d0d0d;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 9999;
+  }
+
+  .footer-text {
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    display: inline-block;
+    background-image: linear-gradient(
+      90deg,
+      #ff0080,
+      #7928ca,
+      #00f5ff,
+      #00ff94
+    );
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  import gsap from "gsap";
+
+  window.addEventListener("load", () => {
+    const text = document.querySelector(".footer-text");
+    const content = text.textContent;
+    text.textContent = "";
+
+    // Step 1: Typing animation
+    gsap.to({}, {
+      duration: content.length * 0.1,
+      repeat: 0,
+      onUpdate: function () {
+        const progress = Math.floor(this.progress() * content.length);
+        text.textContent = content.slice(0, progress);
+      },
+      onComplete: function () {
+        // Step 2: Gradient shimmer (endless flow)
+        gsap.to(text, {
+          backgroundPosition: "200% center",
+          duration: 6,
+          ease: "linear",
+          repeat: -1,
+        });
+
+        // Step 3: Cinematic reveal effect (blur + glow)
+        gsap.fromTo(
+          text,
+          { opacity: 0.8, filter: "blur(6px)", scale: 0.95 },
+          {
+            opacity: 1,
+            filter: "blur(0px)",
+            scale: 1.02,
+            duration: 2,
+            ease: "power2.out",
+            yoyo: true,
+            repeat: -1,
+          }
+        );
+      },
+    });
+  });
+</script>

@@ -1,0 +1,24 @@
+---
+import { smoothScroll } from '../scripts/smoothScroll.js';
+---
+
+<nav class="fixed top-0 left-0 w-full bg-black/50 p-4 flex gap-4 z-50">
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about" class="h-screen flex items-center justify-center bg-gray-900">About Section</section>
+<section id="projects" class="h-screen flex items-center justify-center bg-gray-800">Projects Section</section>
+<section id="contact" class="h-screen flex items-center justify-center bg-gray-700">Contact Section</section>
+
+<script type="module" client:load>
+  import { smoothScroll } from '../scripts/smoothScroll.js';
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      e.preventDefault();
+      smoothScroll(anchor.getAttribute('href'), 2000); // 2 seconds duration
+    });
+  });
+</script>
