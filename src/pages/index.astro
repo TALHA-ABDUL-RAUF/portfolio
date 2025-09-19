@@ -817,14 +817,21 @@ text-shadow: 0 0 12px #fff, 0 0 24px #0ea5e9, 0 0 48px #22d3ee;
 <script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
     new Typed("#typed-name", {
-      strings: ["Talha Abdul Rauf", "Aspiring Data Scientist",  "Aspiring AI Researcher", "Aspiring ML Engineer"],
-      typeSpeed: 70,
-      backSpeed: 40,
+      strings: [
+        "Talha Abdul Rauf",
+        "Aspiring Data Scientist",
+        "Aspiring AI Researcher",
+        "Aspiring ML Engineer"
+      ],
+      typeSpeed: 150,
+      backSpeed: 150,
       backDelay: 1500,
+      startDelay: 1000, // ⬅️ 2 second delay before typing starts
       loop: true,
     });
   });
 </script>
+
 
 
 <!-- Education Section -->
@@ -1016,34 +1023,40 @@ text-shadow: 0 0 12px #fff, 0 0 24px #0ea5e9, 0 0 48px #22d3ee;
 <section id="vision" class="relative py-32 bg-gradient-to-b from-gray-950 via-black to-gray-950 text-center overflow-hidden">
   <div class="max-w-4xl mx-auto px-6">
 
-    <div class="relative bg-black/40 border border-amber-400/40 backdrop-blur-xl rounded-3xl p-12 
-                shadow-[0_0_40px_#fbbf24aa] hover:shadow-[0_0_70px_#f59e0b] transition-all duration-700"
+    <div class="relative bg-black/40 border border-fuchsia-400/40 backdrop-blur-xl rounded-3xl p-12 
+                shadow-[0_0_40px_#c084fcaa] hover:shadow-[0_0_70px_#e879f9] transition-all duration-700"
          data-aos="zoom-in">
       
       <!-- Neon Aura -->
       <div class="absolute inset-0 rounded-3xl 
-                  bg-gradient-to-r from-amber-25 via-orange-55 to-yellow-100 
+                  bg-gradient-to-r from-purple-500 via-fuchsia-500 to-pink-500 
                   opacity-0 blur-3xl animate-pulse"></div>
 
       <!-- Heading -->
       <h2 class="relative text-5xl md:text-6xl font-extrabold 
-                 bg-gradient-to-r from-amber-300 via-orange-400 to-yellow-500 
-                 bg-clip-text text-transparent drop-shadow-[0_0_25px_#fbbf24] mb-8">
+                 bg-gradient-to-r from-purple-300 via-fuchsia-400 to-pink-500 
+                 bg-clip-text text-transparent drop-shadow-[0_0_25px_#e879f9] mb-8">
         My Vision
       </h2>
 
+
+
       <!-- Content -->
-<p class="relative text-lg md:text-2xl text-gray-100 leading-relaxed font-medium" data-aos="fade-up">
-  To advance AI (<span class="bg-gradient-to-r from-[#a855f7] via-[#c084fc] to-[#e879f9] bg-clip-text text-transparent font-semibold hover:animate-text-wave">Artificial Intelligence</span>) as both an engineer and researcher:
+<p class="text-lg md:text-2xl text-gray-100 leading-relaxed font-medium mt-4" data-aos="fade-up" data-aos-delay="200">
+  To advance AI
+  <span class="bg-gradient-to-r from-[#3b82f6] via-[#a855f7] to-[#22d3ee] bg-clip-text text-transparent font-semibold hover:animate-text-wave">
+    (Artificial Intelligence)
+  </span> 
+  as both an engineer and researcher  
 </p>
 
-<p class="relative text-lg md:text-2xl text-gray-100 leading-relaxed font-medium mt-4" data-aos="fade-up" data-aos-delay="200">
-  <span class="bg-gradient-to-r from-[#ff6b35] via-[#fd5e53] to-[#ffd166] bg-clip-text text-transparent font-extrabold hover:animate-float">
+<p class="relative text-lg md:text-2xl text-gray-100 leading-relaxed font-medium mt-4">
+  <span class="bg-gradient-to-r from-[#a855f7] via-[#3b82f6] to-[#22d3ee] bg-clip-text text-transparent font-extrabold hover:animate-float">
     I aim to explore domains such as Computer Vision, NLP, Generative AI, and Reinforcement Learning
-  </span>  —
-  that <span class="text-[#ef4444] font-bold hover:animate-pulse-slow">drive innovation,</span>,  
-  transform <span class="text-[#ec4899] font-bold hover:animate-bounce-slow">industries</span>,  
-  and shape a <span class="text-[#facc15] font-bold hover:animate-glow-gold">more, intelligent,  connected future</span>.
+  </span> —
+  that <span class="text-[#3b82f6] font-bold hover:animate-pulse-slow">drive innovation</span>,  
+  transform <span class="text-[#a855f7] font-bold hover:animate-bounce-slow">industries</span>,  
+  and shape a <span class="text-[#ffd700] font-bold hover:animate-glow-gold">smarter, connected future</span>.
 </p>
 
 <style>
@@ -1064,8 +1077,8 @@ text-shadow: 0 0 12px #fff, 0 0 24px #0ea5e9, 0 0 48px #22d3ee;
   50% { transform: translateY(-6px); }
 }
 @keyframes glow-gold {
-  0%, 100% { text-shadow: 0 0 15px rgba(250, 204, 21, 0.5); }
-  50% { text-shadow: 0 0 25px rgba(250, 204, 21, 0.8), 0 0 35px rgba(250, 204, 21, 0.6); }
+  0%, 100% { text-shadow: 0 0 12px rgba(255, 215, 0, 0.4); }
+  50% { text-shadow: 0 0 24px rgba(255, 215, 0, 0.8), 0 0 36px rgba(255, 215, 0, 0.6); }
 }
 .hover\:animate-text-wave:hover { 
   animation: text-wave 2s ease-in-out infinite; 
@@ -1077,27 +1090,24 @@ text-shadow: 0 0 12px #fff, 0 0 24px #0ea5e9, 0 0 48px #22d3ee;
 .hover\:animate-glow-gold:hover { animation: glow-gold 2s ease-in-out infinite; }
 </style>
 
-
-
-      <!-- Highlight Badge -->
-      <!-- Ultra Modern Highlight Badge -->
+<!-- Highlight Badge -->
 <div class="relative mt-10 flex justify-center" data-aos="fade-up" data-aos-delay="200">
   <div class="relative group cursor-default">
     <!-- Multi-layered glow effects -->
-    <div class="absolute -inset-3 bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-500 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 group-hover:blur-2xl transition-all duration-1000 animate-pulse"></div>
-    <div class="absolute -inset-2 bg-gradient-to-r from-amber-400/40 via-yellow-500/40 to-orange-500/40 rounded-2xl blur-lg opacity-40 group-hover:opacity-60 transition-all duration-700"></div>
+    <div class="absolute -inset-3 bg-gradient-to-r from-purple-500 via-fuchsia-500 to-pink-500 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 group-hover:blur-2xl transition-all duration-1000 animate-pulse"></div>
+    <div class="absolute -inset-2 bg-gradient-to-r from-purple-500/40 via-fuchsia-500/40 to-pink-500/40 rounded-2xl blur-lg opacity-40 group-hover:opacity-60 transition-all duration-700"></div>
     
-    <!-- SMALLER Animated border - positioned behind -->
-    <div class="absolute -inset-0.5 bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-500 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000 animate-rotate-border z-0"></div>
+    <!-- SMALLER Animated border -->
+    <div class="absolute -inset-0.5 bg-gradient-to-r from-purple-400 via-fuchsia-500 to-pink-500 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000 animate-rotate-border z-0"></div>
     
     <!-- Main badge content -->
-    <span class="relative px-8 py-4 bg-black/80 border border-amber-400/30 text-amber-200 rounded-2xl 
-                 shadow-[0_0_30px_rgba(251,191,36,0.6)] 
-                 group-hover:shadow-[0_0_60px_rgba(245,158,11,0.8),0_0_80px_rgba(251,191,36,0.4)]
+    <span class="relative px-8 py-4 bg-black/80 border border-fuchsia-400/30 text-fuchsia-200 rounded-2xl 
+                 shadow-[0_0_30px_rgba(192,132,252,0.6)] 
+                 group-hover:shadow-[0_0_60px_rgba(232,121,249,0.8),0_0_80px_rgba(147,51,234,0.4)]
                  backdrop-blur-xl 
                  transition-all duration-500
                  group-hover:scale-105
-                 group-hover:border-amber-400/60
+                 group-hover:border-fuchsia-400/60
                  font-semibold text-lg
                  flex items-center space-x-3">
       <span class="flex space-x-2">
@@ -1106,16 +1116,16 @@ text-shadow: 0 0 12px #fff, 0 0 24px #0ea5e9, 0 0 48px #22d3ee;
         <span class="animate-bounce" style="animation-delay: 0.4s;">🤖</span>
         <span class="animate-bounce" style="animation-delay: 0.6s;">🗣️</span>
       </span>
-      <span class="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent font-bold">
+      <span class="bg-gradient-to-r from-purple-300 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent font-bold">
         Advancing Intelligence, Powered by AI
       </span>
     </span>
 
     <!-- Floating particles -->
     <div class="absolute -inset-4 opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
-      <div class="absolute w-2 h-2 bg-amber-400 rounded-full animate-float" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
-      <div class="absolute w-1.5 h-1.5 bg-yellow-500 rounded-full animate-float" style="top: 60%; left: 80%; animation-delay: 0.3s;"></div>
-      <div class="absolute w-1 h-1 bg-orange-500 rounded-full animate-float" style="top: 40%; left: 50%; animation-delay: 0.6s;"></div>
+      <div class="absolute w-2 h-2 bg-purple-400 rounded-full animate-float" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+      <div class="absolute w-1.5 h-1.5 bg-fuchsia-500 rounded-full animate-float" style="top: 60%; left: 80%; animation-delay: 0.3s;"></div>
+      <div class="absolute w-1 h-1 bg-pink-500 rounded-full animate-float" style="top: 40%; left: 50%; animation-delay: 0.6s;"></div>
     </div>
   </div>
 </div>
@@ -1136,6 +1146,7 @@ text-shadow: 0 0 12px #fff, 0 0 24px #0ea5e9, 0 0 48px #22d3ee;
   animation: float 4s ease-in-out infinite;
 }
 </style>
+
 
     </div>
   </div>
