@@ -87,22 +87,32 @@ import TechStack from '../components/TechStack.astro';
   </div>
 
   <!-- Name + Title -->
-  <div class="flex flex-col">
-    
-<span class="text-lg md:text-xl font-black uppercase tracking-widest text-transparent bg-clip-text bg-[length:200%_200%] bg-gradient-to-r from-blue-400 via-purple to-pink-400 animate-text-shine" style="font-family: 'Orbitron', sans-serif; text-shadow: 0 0 1500px #ffffff, 0 0 350px #ffffff, 0 0 50px #ffffff, 0 0 50px #ffffff40;">
-  Aspiring Data Scientist & AI Engineer
-</span>
+<div class="flex flex-col">
+  <span 
+    class="text-lg md:text-2xl font-black uppercase tracking-widest 
+           text-transparent bg-clip-text bg-[length:300%_300%] 
+           bg-gradient-to-r from-amber-300 via-orange-400 to-yellow-500 
+           animate-text-glow"
+    style="font-family: 'Orbitron', sans-serif; 
+           text-shadow: 0 0 25px rgba(251,191,36,0.8),
+                        0 0 45px rgba(251,191,36,0.6),
+                        0 0 65px rgba(251,191,36,0.4);">
+    Aspiring Data Scientist & AI Engineer
+  </span>
+</div>
 
 <style>
-@keyframes text-shine {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
+@keyframes text-glow {
+  0% { background-position: 0% 50%; text-shadow: 0 0 20px #fbbf24, 0 0 40px #f59e0b; }
+  50% { background-position: 100% 50%; text-shadow: 0 0 30px #f59e0b, 0 0 60px #fbbf24; }
+  100% { background-position: 200% 50%; text-shadow: 0 0 25px #fbbf24, 0 0 50px #f59e0b; }
 }
-.animate-text-shine {
+.animate-text-glow {
   background-position: 0% 50%;
-  animation: text-shine 4s ease-in-out infinite alternate;
+  animation: text-glow 6s ease-in-out infinite;
 }
 </style>
+
 
   </div>
 </div>
